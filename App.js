@@ -47,7 +47,14 @@ export default function App() {
           source={{uri: selectedImage.localUri }} 
           style={styles.thumbnail}
         />
-        <TouchableOpacity onPress={openShareDialogAsync} style={styles.button}><Text style={styles.buttonText}>Share this photo</Text></TouchableOpacity>
+
+        <TouchableOpacity onPress={openShareDialogAsync} style={styles.button}>
+          <Text style={styles.buttonText}>Share this photo</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => setSelectedImage(null)} style={styles.button}>
+          <Text style={styles.buttonText}>Clear photo</Text>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -84,6 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     padding: 15,
     borderRadius: 5,
+    margin: 5,
   },
   buttonText: {
     fontSize: 20,
