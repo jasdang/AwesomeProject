@@ -15,12 +15,13 @@ export default function App() {
   return (    
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='home' component={HomeScreen} options={{title:'Welcome'}}>
-        </Stack.Screen>
+        <Stack.Screen name='home' component={HomeScreen} options={{title:'Welcome'}}></Stack.Screen>
+        <Stack.Screen name='about' component={About} options={{title:'About'}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
 )
 }
+
 export function HomeScreen() {
   const [selectedImage, setSelectedImage] = React.useState(null);
 
@@ -84,6 +85,14 @@ export function HomeScreen() {
       <StatusBar style="auto" />
     </View>
   );
+}
+
+export function About() {
+  return (
+    <View>
+      <Text style={styles.instructions}>About us</Text>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
