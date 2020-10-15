@@ -22,7 +22,7 @@ export default function App() {
 )
 }
 
-export function HomeScreen() {
+export function HomeScreen({ navigation }) {
   const [selectedImage, setSelectedImage] = React.useState(null);
 
   let openImagePickerAsync = async () => {
@@ -82,15 +82,22 @@ export function HomeScreen() {
       <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
         <Text style={styles.buttonText}>Pick a photo</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('about')} style={styles.button}>
+        <Text style={styles.buttonText}>Go to about</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
 }
 
-export function About() {
+export function About({ navigation }) {
   return (
     <View>
       <Text style={styles.instructions}>About us</Text>
+      <TouchableOpacity onPress={() => navigation.push('about')} style={styles.button}>
+        <Text style={styles.buttonText}>Go to about</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=> navigation.popToTop()} style={styles.button}><Text style={styles.buttonText}>Go back to the first screen in stack</Text></TouchableOpacity>
     </View>
   )
 }
